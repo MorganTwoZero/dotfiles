@@ -1,8 +1,6 @@
 #!/usr/bin/env fish
 if test $current_theme = "light"
 	sed -i'.bak' 's/light/dark/' ~/.config/alacritty/alacritty.toml
-	sed -i'.bak' 's/vim.o.background = "light"/vim.o.background = "dark"/' ~/.config/nvim/init.lua
-	sed -i'.bak' 's/github_light/github_dark/' ~/.config/nvim/init.lua
 	sed -i'.bak' 's/github_light/github_dark/' ~/.config/helix/config.toml
 	gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -16,8 +14,6 @@ if test $current_theme = "light"
 	set -U current_theme dark
 else
 	sed -i'.bak' 's/dark/light/' ~/.config/alacritty/alacritty.toml
-	sed -i'.bak' 's/vim.o.background = "dark"/vim.o.background = "light"/' ~/.config/nvim/init.lua
-	sed -i'.bak' 's/github_dark/github_light/' ~/.config/nvim/init.lua
 	sed -i'.bak' 's/github_dark/github_light/' ~/.config/helix/config.toml
 	gsettings set org.gnome.desktop.interface gtk-theme 'Arc'
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'

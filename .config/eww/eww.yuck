@@ -1,0 +1,123 @@
+(deflisten window `bash scripts/hyprland window`)
+(deflisten workspaces `bash scripts/hyprland workspaces`)
+(deflisten notifications "swaync-client -s")
+(deflisten volume :initial "0" "bash ./audio.sh volume")
+
+(defwidget bar []
+  (centerbox :orientation "v"
+    :width 42
+    (box
+        :class "segment-top"
+        :space-evenly false
+        :valign "start"
+        :orientation "v"
+        (button
+          :onclick "rofi -show drun &"
+          "")
+        (panel_workspaces :orientation "v")
+    )
+    (box :valign "center"
+         :class "segment-middle" 
+      )
+    (box :valign "end"
+         :class "segment-bottom" 
+      (bottom))))
+
+(defwidget panel_workspaces [orientation] (box 
+    (eventbox :class "button workspaces"
+        (box
+            :space-evenly false
+            :orientation orientation
+            (for workspace in {workspaces.workspaces}
+                (button
+                    :class "workspace-btn ${workspace.id == workspaces.active ? "active" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+                    :onclick "hyprctl dispatch workspace ${workspace.id}"
+                    :valign "center"
+                    (label :class "icon" :text {workspace.windows > 0 ? "${workspace.id == workspaces.active ? "" : ""}" : ""})
+                )
+            )
+        )
+    )
+))
+
+(defwidget bottom []
+  (box :orientation "v"
+       :valign "end"
+       :space-evenly false
+       :spacing "5"
+
+    (volume)
+    (date-time)
+    (notifications)
+    (tray)
+  )
+)
+
+(defwidget notifications []
+  (button 
+    :class "notifications"
+    :halign "fill"
+    :onclick "swaync-client -t -sw"
+    "${notifications.count} "
+  )
+)
+
+(defwidget volume []
+  (box :class "volume"
+       :space-evenly false
+       :valign "fill"
+       :vexpand false
+       (eventbox :onscroll "if [ '{}' == 'up' ]; then pamixer -i 5; else pamixer -d 5; fi"
+                :onrightclick "pavucontrol &"
+                :vexpand true
+                :valign "fill"
+                (box :orientation "v"
+                     :valign "fill"
+                     :vexpand true
+                  (button :onclick "playerctl play-pause"
+                    (box :orientation "v"
+                         :valign "fill"
+                         :vexpand true
+                         "${volume}%"
+                    )
+                  )
+                )
+      )
+  )
+)
+
+(defwidget date-time []
+  (tooltip
+    :class "date-time"
+    (calendar :class "date")
+    (box :orientation "h" 
+      "${hour}:${min}"
+    )
+  )
+)
+
+(defwidget date []
+  (box :orientation "h" 
+       :class "date"
+    "${day_word} ${day}.${month}"))
+
+(defpoll hour :interval "1s" "date +%H")
+(defpoll min  :interval "1s" "date +%M")
+
+(defpoll day_word :interval "10m" "date +%a | tr [:upper:] [:lower:]")
+(defpoll day      :interval "10m" "date +%d")
+(defpoll month    :interval "1h"  "date +%m")
+
+(defwidget tray []
+  (systray :orientation "v")
+)
+
+(defwindow bar
+    :monitor 0
+    :exclusive true
+    :stacking "fg"
+    :focusable false
+    :geometry (geometry :width "38px"
+                        :height "100%"
+                        :anchor "center left")(bar))
+

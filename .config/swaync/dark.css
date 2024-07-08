@@ -1,0 +1,165 @@
+* {
+  font-family: JetBrainsMonoNerdFont;
+  font-weight: normal;
+  font-size: 14px;
+  box-shadow: none;
+  color: #d0d0d0; }
+
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: #1c1c1c; }
+
+.notification-row {
+  margin: 20px;
+  border-radius: 0px; }
+
+.notification-background {
+  all: unset; }
+
+.notification {
+  all: unset;
+  color: #d0d0d0;
+  border: none; }
+
+.notification-content {
+  all: unset;
+  background: #2a2a2a;
+  padding: 7px;
+  border: none; }
+
+.close-button {
+  background: #af3a03;
+  color: #d0d0d0;
+  text-shadow: none;
+  padding: 0;
+  border: none;
+  margin-top: 5px;
+  margin-right: 5px; }
+
+.close-button:hover {
+  box-shadow: none;
+  transition: all .15s ease-in-out;
+  border: none; }
+
+.notification-action {
+  border: 2px solid;
+  border-top: none;
+  border-radius: 0px; }
+
+.summary {
+  padding: 7px;
+  font-size: 15px; }
+
+.time {
+  font-size: 11px;
+  margin-right: 24px; }
+
+.body {
+  font-size: 12px; }
+
+.control-center {
+  border-radius: 5px;
+  background: #1c1c1c; }
+
+.control-center-list {
+  opacity: 1;
+  background: #1c1c1c; }
+
+.control-center-list-placeholder {
+  opacity: .5; }
+
+.floating-notifications {
+  background: transparent; }
+
+.widget-title {
+  background: #1c1c1c;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  font-size: 1.5rem;
+  border-radius: 5px; }
+
+.widget-title > button {
+  font-size: 1rem;
+  color: #d0d0d0;
+  text-shadow: none;
+  background: #1c1c1c;
+  box-shadow: none;
+  border-radius: 5px; }
+
+.widget-dnd {
+  background: #1c1c1c;
+  padding: 5px 10px;
+  margin: 5px 10px 10px 10px;
+  border-radius: 5px;
+  font-size: large; }
+
+.widget-dnd > switch {
+  border-radius: 4px; }
+
+.widget-dnd > switch:checked {
+  border: 1px solid; }
+
+.widget-dnd > switch slider {
+  border-radius: 5px; }
+
+.widget-dnd > switch:checked slider {
+  border-radius: 5px; }
+
+.widget-label {
+  margin: 10px 10px 5px 10px; }
+
+.widget-label > label {
+  font-size: 1rem;
+  color: #d0d0d0; }
+
+.widget-mpris {
+  color: #d0d0d0;
+  border: 1px solid black;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  outline-offset: 0; }
+
+.widget-mpris * {
+  box-shadow: none;
+  border: none; }
+
+.widget-mpris-player {
+  box-shadow: none;
+  border-radius: 0;
+  background: #1c1c1c; }
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 1.25rem; }
+
+.widget-mpris-subtitle {
+  font-size: 1.1rem; }
+
+.widget-volume {
+  background: #2a2a2a; }
+
+.widget-buttons-grid {
+  font-size: x-large;
+  padding: 5px;
+  margin: 5px 10px 10px 10px;
+  border-radius: 5px;
+  background: #1c1c1c; }
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 3px;
+  background: #2a2a2a;
+  border-radius: 5px;
+  color: #d0d0d0; }
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  color: #d0d0d0; }
+
+.widget-menubar > box > .menu-button-bar > button {
+  border: none;
+  background: transparent; }
+
+.topbar-buttons > button {
+  border: none;
+  background: transparent; }

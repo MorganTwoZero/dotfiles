@@ -1,0 +1,61 @@
+// @import 'themes/gruvbox-colors.scss';
+@import 'themes/light.scss';
+// @import 'themes/dark.scss';
+
+* {
+  all: unset;
+}
+
+window {
+  background: $bg0;
+  color: $fg0;
+  font-size: 14px;
+}
+
+.workspaces {
+  button {
+    background: none;
+    margin: 4px;
+    padding-left: 0px;
+    &.active {
+      color: $blue;
+      }  
+    }
+}
+
+.segment-top {
+}
+
+.segment-bottom {
+}
+
+.volume {
+  background-color: $bg1;
+  color: $fg0;
+  padding: 5px;
+}
+
+.date {
+  background-color: $bg1;
+  padding: 5px 2px;
+  color: $fg0;
+  border: 1px solid $fg0;
+  &:selected {
+    background-color: transparentize($fg0, 0.9);
+  }
+}
+
+.date-time {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 2px;
+  background-color: $bg1;
+  color: $fg0;
+}
+
+.notifications {
+  padding: 2px;
+  padding-left: 0px;
+  background-color: $bg1;
+  color: $fg0;
+}

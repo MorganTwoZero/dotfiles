@@ -1,0 +1,124 @@
+#----------------------------- StartUp ----------------------------#
+[[tasks]]
+type = "StartUp"
+params = { client_type = "YoStarEN", start_game_enabled = true }
+
+
+#----------------------------- Infrast ----------------------------#
+[[tasks]]
+type = "Infrast"
+
+[tasks.params]
+mode = 10000
+facility = ["Trade", "Reception", "Mfg", "Control", "Power", "Office", "Dorm"]
+dorm_trust_enabled = true
+filename = "normal.json"
+replenish = true
+
+[[tasks.variants]]
+condition = { type = "Time", start = "07:00:00", end = "13:00:00" }
+params = { plan_index = 1 }
+
+[[tasks.variants]]
+condition = { type = "Time", start = "13:00:00", end = "19:00:00" }
+params = { plan_index = 2 }
+
+[[tasks.variants]]
+params = { plan_index = 0 }
+
+#------------------------------ Fight -----------------------------#
+
+#============================= Fight 1 ============================#
+[[tasks]]
+name = "Fight Event Stage"
+type = "Fight"
+strategy = "merge"
+
+[tasks.params]
+report_to_penguin = true
+penguin_id = "084310065"
+
+# use all expiring medicine on Sunday Evening
+[[tasks.variants]]
+params = { expiring_medicine = 1000 }
+
+[tasks.variants.condition]
+type = "And"
+conditions = [
+  { type = "Time", start = "18:00:00" },
+  { type = "Weekday", weekdays = ["Sun"] },
+]
+
+[[tasks.variants]]
+params = { stage = "HS-9" }
+condition = { type = "OnSideStory", client = "Official" }
+
+#============================= Fight 2 ============================#
+[[tasks]]
+name = "Fight Fallback"
+type = "Fight"
+strategy = "merge"
+
+[tasks.params]
+report_to_penguin = true
+penguin_id = "084310065"
+
+# use all expiring medicine on Sunday Evening
+[[tasks.variants]]
+params = { expiring_medicine = 1000 }
+
+[tasks.variants.condition]
+type = "And"
+conditions = [
+  { type = "Time", start = "18:00:00" },
+  { type = "Weekday", weekdays = ["Sun"] },
+]
+
+[[tasks.variants]]
+params = { stage = "1-7" }
+
+#------------------------------ Mall ------------------------------#
+# Mall after 18:00
+[[tasks]]
+type = "Mall"
+[tasks.params]
+shopping = true
+credit_fight = true
+buy_first = ["招聘许可", "龙门币"]
+blacklist = ["碳", "家具", "加急许可"]
+[[tasks.variants]]
+condition = { type = "Time", start = "18:00:00" }
+
+#----------------------------- Recruit ----------------------------#
+# Recruit after 18:00
+[[tasks]]
+type = "Recruit"
+
+[tasks.params]
+refresh = true
+select = [4, 5]
+confirm = [3, 4, 5]
+skip_robot = false
+recruitment_time = { '3' = 460 }
+report_to_penguin = true
+penguin_id = "084310065"
+
+[[tasks.variants]]
+condition = { type = "Time", start = "18:00:00" }
+params = { times = 4 }
+
+# consume refresh times
+[[tasks.variants]]
+params = { times = 1 }
+
+#------------------------------ Award -----------------------------#
+[[tasks]]
+type = "Award"
+
+[tasks.params]
+award = true
+mail = true
+
+#--------------------------- Close Game ---------------------------#
+[[tasks]]
+type = "CloseDown"

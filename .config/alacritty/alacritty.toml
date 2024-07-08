@@ -1,0 +1,17 @@
+import = [
+    "~/.config/alacritty/themes/themes/github_light.toml"
+]
+
+[window]
+dynamic_title = true
+decorations_theme_variant = "Light"
+
+[font]
+normal = { family = "JetBrainsMonoNL Nerd Font", style = "ExtraLight" }
+size = 14.0
+
+[selection]
+save_to_clipboard = true
+
+[shell]
+program = "fish" 

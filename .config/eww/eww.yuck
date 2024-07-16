@@ -46,10 +46,10 @@
        :space-evenly false
        :spacing "5"
 
+    (tray)
     (volume)
     (date-time)
     (notifications)
-    (tray)
   )
 )
 

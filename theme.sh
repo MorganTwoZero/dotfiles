@@ -5,7 +5,7 @@ if test $current_theme = "light"
 	gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	sed -i'.bak' 's/theme=Arc/theme=ArcDark/' ~/.config/Kvantum/kvantum.kvconfig
-	swww img -o DP-3 ~/Pictures/horizontal-night.png
+	swww img -o DP-3 ~/Pictures/horizontal.jpg
 	swww img -o HDMI-A-1 ~/Pictures/vertical-night.jpg
 	sed -i'.bak' 's/catppuccin-latte/gruvbox-dark/' ~/.config/zellij/config.kdl
 	sed -i'.bak' "s/@import 'themes\/light.scss'/\/\/ @import 'themes\/light.scss'/" ~/.config/eww/eww.scss
@@ -18,7 +18,7 @@ else
 	gsettings set org.gnome.desktop.interface gtk-theme 'Arc'
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
 	sed -i'.bak' 's/theme=ArcDark/theme=Arc/' ~/.config/Kvantum/kvantum.kvconfig
-	swww img -o DP-3 ~/Pictures/horizontal-day.jpg
+	swww img -o DP-3 ~/Pictures/horizontal.jpg
 	swww img -o HDMI-A-1 ~/Pictures/vertical-day.jpg
 	sed -i'.bak' 's/gruvbox-dark/catppuccin-latte/' ~/.config/zellij/config.kdl
 	sed -i'.bak' "s/@import 'themes\/dark.scss'/\/\/ @import 'themes\/dark.scss'/" ~/.config/eww/eww.scss

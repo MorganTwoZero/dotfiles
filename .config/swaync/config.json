@@ -20,7 +20,7 @@
     "notification-window-width": 440,
     "keyboard-shortcuts": true,
     "image-visibility": "when-available",
-    "transition-time": 100,
+    "transition-time": 200,
     "hide-on-clear": true,
     "hide-on-action": true,
     "script-fail-notify": true,
@@ -65,12 +65,12 @@
                     "command": "systemctl reboot"
                 },
                 {
-                    "label": "󰒲",
+                    "label": "󰤄",
                     "command": "systemctl suspend"
                 },
                 {
-                    "label": "󰂯",
-                    "command": "blueman-manager"
+                    "label": "󰢅",
+                    "command": "sway output HDMI-A-1 transform 90 clockwise"
                 },
             		{
             		    "label": "󰔎",

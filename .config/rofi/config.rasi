@@ -20,7 +20,7 @@ configuration {
 /*	drun-show-actions: false;*/
 /*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
 /*	drun-url-launcher: "xdg-open";*/
-/*	disable-history: false;*/
+	disable-history: true;
 /*	ignored-prefixes: "";*/
 	sort: true;
 /*	sorting-method: "normal";*/
@@ -164,5 +164,9 @@ configuration {
 //@theme "/usr/share/rofi/themes/sidebar-v2.rasi"
 
 //@theme "/usr/share/rofi/themes/gruvbox-light-soft.rasi"
+
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+
+//@theme "/usr/share/rofi/themes/paper-float.rasi"
 
 @theme "/usr/share/rofi/themes/sidebar.rasi"

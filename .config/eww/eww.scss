@@ -17,7 +17,7 @@ window {
     background: none;
     margin: 4px;
     padding-left: 0px;
-    &.active {
+    &.focused {
       color: $blue;
       }  
     }
@@ -30,6 +30,12 @@ window {
 }
 
 .volume {
+  background-color: $bg1;
+  color: $fg0;
+  padding: 5px;
+}
+
+.kb_layout {
   background-color: $bg1;
   color: $fg0;
   padding: 5px;

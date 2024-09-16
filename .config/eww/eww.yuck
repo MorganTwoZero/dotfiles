@@ -1,5 +1,6 @@
 (deflisten window `bash scripts/hyprland window`)
-(deflisten workspaces `bash scripts/hyprland workspaces`)
+(deflisten workspaces `bash scripts/sway-workspaces.sh`)
+(deflisten kb_layout `bash scripts/kb-layout-change.sh`)
 (deflisten notifications "swaync-client -s")
 (deflisten volume :initial "0" "bash ./audio.sh volume")
 
@@ -12,7 +13,7 @@
         :valign "start"
         :orientation "v"
         (button
-          :onclick "rofi -show drun &"
+          :onclick "rofi -show combi -combi-modes 'window,drun' &"
           "")
         (panel_workspaces :orientation "v")
     )
@@ -28,12 +29,15 @@
         (box
             :space-evenly false
             :orientation orientation
-            (for workspace in {workspaces.workspaces}
+            (for workspace in {workspaces}
                 (button
-                    :class "workspace-btn ${workspace.id == workspaces.active ? "active" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-                    :onclick "hyprctl dispatch workspace ${workspace.id}"
+                    :class "workspace-btn ${workspace.focused == true ? "focused" : ""}"
+                    :onclick "swaymsg workspace number ${workspace.num}"
                     :valign "center"
-                    (label :class "icon" :text {workspace.windows > 0 ? "${workspace.id == workspaces.active ? "" : ""}" : ""})
+                    (label 
+                      :class "icon"
+                      :text {substring(workspace.name, 3, 100)}
+                    )
                 )
             )
         )
@@ -48,8 +52,18 @@
 
     (tray)
     (volume)
+    (kb_layout)
     (date-time)
     (notifications)
+  )
+)
+
+(defwidget kb_layout []
+  (box :class "kb_layout"
+       :space-evenly true
+       :halign "fill"
+       :vexpand true
+       "${kb_layout == "En" ? "🇺🇸" : "🇷🇺"}"
   )
 )
 
